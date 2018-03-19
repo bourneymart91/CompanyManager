@@ -1,0 +1,24 @@
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+            <% include ../partials/header %>
+            <% include ../partials/headerJobs %>
+    </header>
+
+
+    <div class="ui raised very padded text container segment">
+
+            <form action="/purchaseOrders/<%= purchaseOrder_id %>/comments/<%= comment._id %>?_method=PUT" method="POST" class="ui form">
+                <label for="comment[text]">Enter Comment</label>    
+                <input class="form-control" type="text" value="<%= comment.text %>" name="comment[text]">
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+            </form>
+                        
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body>
+
+    <% include partials/header %>
+
+    
+    <main>
+        <div class="ui raised very padded text container segment">
+            <form class = "ui form" method="POST" action="register">
+                    <label>Username</label>
+                    <input name='username' type = "text" placeholder="username">
+                    
+                    <label >Password</label>
+                    <input name="password" type = "password" placeholder="password">
+                
+                    <label for = "admincode">Admin Code</label>
+                    <input id = "adminCode" name="adminCode">
+                    
+                    <input type = "submit">
+            </form>
+    </div>
+    </main>
+
+</body>
+</html>
+
+
+

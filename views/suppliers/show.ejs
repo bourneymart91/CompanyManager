@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+<body>
+    <header>
+        <% include ../partials/header %>
+        <% include ../partials/headerSuppliers %>
+    </header>
+    <div class="ui raised very padded text container segment">
+
+        <div class="ui header">
+            <%= supplier.name %>
+        </div>
+        <p>
+            <strong>Contact</strong> : <%= supplier.contact%>
+        </p>
+        <p>
+            <strong>Address</strong> : <%= supplier.address%>
+        </p>
+        <p>
+            <strong>Email</strong> : <%= supplier.email%>
+        </p>
+        <p>
+            <strong>Phone</strong> : <%= supplier.telephone %>
+        </p>
+        
+        <a href="/suppliers/<%=supplier._id%>/edit">
+            <i class="icon edit"></i>
+            Edit Supplier
+        </a>
+
+</div>
+
+
+</body>
+</html>

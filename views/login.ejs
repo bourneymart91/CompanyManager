@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body>
+    
+    <header>
+            <% include partials/header %>
+    </header>
+
+
+    <main>
+        <div class="ui raised very padded text container segment">
+            <form class="ui form" method="POST" action="login">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+        
+        
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+        
+        
+                <input type="submit">
+            </form>    
+        </div>
+    </main>
+    
+
+
+</body>
+</html>

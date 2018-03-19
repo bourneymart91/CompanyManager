@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+<body>
+    <header>
+        <% include ../partials/header %>
+        <% include ../partials/headerJobs %>
+    </header>
+    
+    <div class="ui raised very padded text container segment">
+
+            <div class="ui header">
+                <%= job.name %>
+            </div>
+            <p>
+                <%= job.location %>
+            </p>
+            <a href="/jobs/<%=job._id%>/edit">
+                <i class="icon edit"></i>
+                Edit Job
+            </a>
+
+    </div>
+    
+    <div class="ui padded header text container segment">
+        Associated Orders
+    </div>
+
+    <%  
+    purchaseOrders.forEach(function(purchaseOrder)
+    {
+    %>
+        <div class="ui raised very padded text container segment">
+                <div class="caption">
+                <h4>
+                    <%= 
+                        purchaseOrder.name
+                    %>
+                </h4>
+                <div>
+                    <%= purchaseOrder.description %>
+                </div>
+                </div>
+                <p>
+                    <a href="/purchaseOrders/<%= purchaseOrder._id %>" class="btn btn-primary">
+                        <i class="file icon outline"></i>
+                        More info</a>
+                </p>
+            </div>
+        </div>
+        
+    <%
+        });
+
+    %>
+
+</body>
+</html>
+

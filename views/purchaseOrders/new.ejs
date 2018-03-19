@@ -1,0 +1,64 @@
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+            <% include ../partials/header %>
+            <% include ../partials/headerPurchaseOrders %>
+    </header>
+    
+    <div class="ui raised very padded text container segment ">
+
+        <div class="ui header">
+            Add New Order
+        </div>
+
+        <form action="/purchaseOrders" method="POST" class="ui form">
+
+            <div class="field">
+                <label of"purchaseOrder[name]">Name</label>
+                <input type="text"  name="purchaseOrder[name]">
+            </div>
+            
+            <div class="field">
+                <label>Description</label>
+                <input type="text" name="purchaseOrder[description]">
+            </div>
+        
+            <div class="field">
+                <label for="purchaseOrderJob">Job</label>
+                <select name="purchaseOrderJob">
+                    <%
+                        jobs.forEach(function(job)
+                        {
+                    %>
+                            <option value="<%=job._id %>"> <%= job.name %> </option>
+                    <%   
+                        })
+                    %>
+                </select>
+            </div>
+
+            <div class="field">
+            <label for="purchaseOrderSupplier">Supplier</label>
+            <select name="purchaseOrderSupplier">
+                <%
+                    suppliers.forEach(function(supplier)
+                    {
+                %>
+                        <option value="<%=supplier._id %>"> <%= supplier.name %> </option>
+                <%   
+                    })
+                %>
+
+            </select>
+            </div>
+
+            <button type="submit" class="ui button">Add Order</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

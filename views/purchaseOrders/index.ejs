@@ -1,0 +1,64 @@
+
+<html lang="en">
+<head>
+        <% include ../partials/head %>
+</head>
+<body>
+    <header>
+            <% include ../partials/header %>
+            <% include ../partials/headerPurchaseOrders %>
+    </header>
+    <main>
+        
+            <%
+                purchaseOrders.forEach(function(purchaseOrder){
+            %>
+                <div class="ui raised very padded text container segment">
+                    <p>
+                        <strong>Name</strong>
+                        <%= purchaseOrder.name %>
+                    </p>
+                    <p>
+                        <strong>Description</strong>
+                        <%= purchaseOrder.description %>
+                    </p>
+                    <p>
+                        <strong>Ordered By</strong>
+                        <%= purchaseOrder.author.username %>
+                    </p>
+                    <p>
+                        <a href="/purchaseOrders/<%= purchaseOrder._id %>" class="btn btn-primary">
+                            <i class="icon file outline"></i> More info</a>
+                    
+                    <% 
+                    if (currentUser && purchaseOrder.author.id.equals(currentUser._id) )
+                    {
+                    %>
+                        <a href="/purchaseOrders/<%= purchaseOrder._id %>/edit"> <i class="icon edit"></i>Edit</a> 
+
+                        <form id="delete-form" action="/purchaseOrders/<%= purchaseOrder._id%>?_method=DELETE" method="POST">
+                            
+                            <button class="ui icon button red">
+                                <i class = "trash icon white"></i>
+                            </button>
+                        </form>
+                    <%
+                    }
+                    %>
+                    </p>
+                </div>
+                
+            <%
+                });
+            
+            %>
+
+        
+
+    </main>
+
+</body>
+
+
+
+</html>

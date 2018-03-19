@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+<body>
+<header>
+    <% include ../partials/header %>
+    <% include ../partials/headerSuppliers %>
+</header>
+
+    <!--<div>
+        <a href="../suppliers/new">Add Supplier</a>            
+    </div>-->
+    <% 
+    suppliers.forEach(function(supplier)
+    {
+        console.log(supplier.name);
+
+    %>
+
+
+
+    <div class="ui raised very padded text container segment">
+        <div class="caption">
+        <h4>
+            <%= 
+                supplier.name
+            %>
+        </h4>
+        </div>
+        <p>
+            <a href="/suppliers/<%= supplier._id %>" class="btn btn-primary">
+                <i class="icon file outline"></i>
+                More info
+            </a>
+            
+        </p>
+    </div>
+
+
+
+    <%    
+    })
+    %>
+</body>
+</html>

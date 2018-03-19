@@ -1,0 +1,52 @@
+
+<header>
+        <div class="ui stackable main menu">
+            <div class="item">
+                <img src="/img/logo.png">
+            </div>
+            <a class="item" href="/purchaseOrders" >
+                <i class="icon shopping cart large">
+
+                </i> Purchase Orders</a>
+            <a class="item" >
+                <i class="icon wrench large"></i>
+                Plant Hires</a>
+            <a class="item" href="/suppliers">
+                <i class="icon address book large"></i>
+                Suppliers</a>
+            <a class="item" href="/jobs">
+                <i class="icon suitcase large"></i> Jobs</a>
+
+
+
+
+
+            <div class="right menu">
+                <div class="item">
+                        <% 
+                        if (!currentUser)
+                        {
+                        %>
+                            <a class="item" href="/login" >Login</a>
+                            <a class="item" href="/register">Register</a>
+                        <% 
+                            
+                        }
+                        else
+                        {
+                        %>
+                            <a class="item" href="#">
+                                <i class="icon user outline large"></i>
+                                Signed in as <%= currentUser.username%>
+                            </a>
+                            <a class="item" href="/logout">Log out</a>
+                        <%
+                        }
+                        %>
+                </div>
+            </div>
+        </div>
+
+</header>
+
+    

@@ -1,0 +1,36 @@
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+            <% include ../partials/header %>
+            <% include ../partials/headerJobs %>
+    </header>
+    
+
+
+
+    <div class="ui raised very padded text container segment">
+
+        
+        <form action="/jobs/<%=job._id%>?_method=PUT" method="POST" class="ui form">
+
+            <label of="job[name]">Job Name: </label>
+            <input type="text"  name="job[name]" value="<%=job.name%>">
+
+            <label of="job[location]">Location: </label>
+            <input type="text" name="job[location]" value="<%=job.location%>">
+
+            
+
+            <input type="submit">
+        </form>
+    </div>
+
+
+</body>
+</html>
+
+
+</html>

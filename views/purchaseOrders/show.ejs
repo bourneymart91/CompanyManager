@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+<body>
+    <header>
+        <% include ../partials/header %>
+        <% include ../partials/headerPurchaseOrders %>
+    </header>
+    
+    <div class="ui raised very padded text container segment">
+
+            <div class="ui header">
+                <%= purchaseOrder.name %>
+            </div>
+            <%= purchaseOrder.date %>  
+            <p>
+                <%= purchaseOrder.description %>
+            </p>
+            <p> 
+                <strong>Supplier: </strong>
+                <%= purchaseOrder.orderSupplier.name%> 
+            </p>
+            <p> 
+                <strong></strong>
+                <%= purchaseOrder.orderSupplier.address%> 
+            </p>
+            <p> 
+                <strong></strong>
+                <%= purchaseOrder.orderSupplier.contact%> 
+            </p>
+            <p> 
+                <strong></strong>
+                <%= purchaseOrder.orderSupplier.email%> 
+            </p>
+            <p> 
+                <strong></strong>
+                <%= purchaseOrder.orderSupplier.telephone%> 
+            </p>
+            <p>
+                <strong>Job Details:</strong>
+                <%= purchaseOrder.orderJob.name %>
+            </p>           
+            <p>
+                <strong></strong>
+                <%= purchaseOrder.orderJob.location %>
+            </p>           
+            <p>
+                <%= moment(purchaseOrder.createdAt).format("LLLL") %>  
+            </p>
+            <a href="/purchaseOrders/<%= purchaseOrder._id %>/edit" class="btn btn-primary">
+                <i class="icon edit"></i>
+                Edit Order
+            </a>
+
+    </div>
+    
+    <div class="ui raised very padded text container header segment">
+        Comments
+        <a class="btn btn-primary btn-lg" href="/purchaseOrders/<%= purchaseOrder._id %>/comments/new"><i class="large plus square outline icon"></i>Add Comment</a>
+    </div>
+    <%
+        purchaseOrder.comments.forEach(function(comment){
+    %>
+        <div class="ui raised very padded text container segment">
+                <div class="caption">
+                    <h4>
+                        <%= 
+                            comment.text
+                        %>
+                    </h4>
+                    <div>
+                        <%= comment.author.username %>
+                    </div>
+                    <div>
+                        <%= moment(comment.createdAt).format("LLLL") %>
+                    </div>
+                </div>
+                <% 
+                if (currentUser && comment.author.id.equals(currentUser._id) )
+                {
+                %>
+                    <a href="/purchaseOrders/<%= purchaseOrder._id %>/comments/<%= comment._id %>/edit"> <i class="icon edit"></i>Edit</a> 
+                    <a href="#"> <i class="icon trash"></i>Delete</a>
+                <%
+                }
+                %>
+            </div>
+        </div>
+        
+    <%
+        });
+    
+    %>
+
+</body>
+</html>
+
